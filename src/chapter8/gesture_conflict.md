@@ -317,7 +317,7 @@ Listener(  // 将 GestureDetector 换位 Listener 即可
 
 ### 2. 通过自定义 Recognizer 解决手势冲突
 
-自定义手势识别器的方式比较麻烦，原理时当确定手势竞争胜出者时，会调用胜出者的`acceptGesture` 方法，表示“宣布成功”，然后会调用其他手势识别其的` rejectGesture` 方法，表示“宣布失败”。既然如此，我们可以自定义手势识别器（Recognizer），然后去重写它的` rejectGesture` 方法：在里面调用`acceptGesture`  方法，这就相当于它失败是强制将它也变成竞争的成功者了，这样它的回调也就会执行。
+自定义手势识别器的方式比较麻烦，原理是当确定手势竞争胜出者时，会调用胜出者的`acceptGesture` 方法，表示“宣布成功”，然后会调用其他手势识别其的` rejectGesture` 方法，表示“宣布失败”。既然如此，我们可以自定义手势识别器（Recognizer），然后去重写它的` rejectGesture` 方法：在里面调用`acceptGesture`  方法，这就相当于它失败是强制将它也变成竞争的成功者了，这样它的回调也就会执行。
 
 我们先自定义tap手势识别器（Recognizer）：
 
