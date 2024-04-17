@@ -50,7 +50,7 @@ MaterialApp(
 
 ## 13.1.3 获取当前区域Locale
 
-[`Locale`](https://docs.flutter.io/flutter/dart-ui/Locale-class.html)类是用来标识用户的语言环境的，它包括语言和国家两个标志如：
+[`Locale`](https://api.flutter.dev/flutter/dart-ui/Locale-class.html)类是用来标识用户的语言环境的，它包括语言和国家两个标志如：
 
 ```dart
 const Locale('zh', 'CN') // 中文简体
@@ -62,7 +62,7 @@ const Locale('zh', 'CN') // 中文简体
 Locale myLocale = Localizations.localeOf(context);
 ```
 
-[`Localizations`](https://docs.flutter.io/flutter/widgets/Localizations-class.html) 组件一般位于widget树中其他业务组件的顶部，它的作用是定义区域Locale以及设置子树依赖的本地化资源。 如果系统的语言环境发生变化，则会使用对应语言的本地化资源。
+[`Localizations`](https://api.flutter.dev/flutter/widgets/Localizations-class.html) 组件一般位于widget树中其他业务组件的顶部，它的作用是定义区域Locale以及设置子树依赖的本地化资源。 如果系统的语言环境发生变化，则会使用对应语言的本地化资源。
 
 ## 13.1.4 监听系统语言切换
 
@@ -104,11 +104,11 @@ Locale Function(List<Locale> locales, Iterable<Locale> supportedLocales)
 
 ## 13.1.5 Localization 组件
 
-Localizations组件用于加载和查找应用当前语言下的本地化值或资源。应用程序通过[`Localizations.of(context,type)`](https://docs.flutter.io/flutter/widgets/Localizations/of.html)来引用这些对象。 如果设备的Locale区域设置发生更改，则Localizations 组件会自动加载新区域的Locale值，然后重新build使用（依赖）了它们的组件，之所以会这样，是因为`Localizations`内部使用了[InheritedWidget](https://book.flutterchina.club/chapter7/inherited_widget.html) ，我们在介绍该组件时讲过：当子组件的`build`函数引用了`InheritedWidget`时，会创建对`InheritedWidget`的隐式依赖关系。因此，当`InheritedWidget`发生更改时，即`Localizations`的Locale设置发生更改时，将重建所有依赖它的子组件。
+Localizations组件用于加载和查找应用当前语言下的本地化值或资源。应用程序通过[`Localizations.of(context,type)`](https://api.flutter.dev/flutter/widgets/Localizations/of.html)来引用这些对象。 如果设备的Locale区域设置发生更改，则Localizations 组件会自动加载新区域的Locale值，然后重新build使用（依赖）了它们的组件，之所以会这样，是因为`Localizations`内部使用了[InheritedWidget](https://book.flutterchina.club/chapter7/inherited_widget.html) ，我们在介绍该组件时讲过：当子组件的`build`函数引用了`InheritedWidget`时，会创建对`InheritedWidget`的隐式依赖关系。因此，当`InheritedWidget`发生更改时，即`Localizations`的Locale设置发生更改时，将重建所有依赖它的子组件。
 
-本地化值由`Localizations`的 [LocalizationsDelegates](https://docs.flutter.io/flutter/widgets/LocalizationsDelegate-class.html) 列表加载 。 **每个委托必须定义一个异步load() 方法**，以生成封装了一系列本地化值的对象。通常这些对象为每个本地化值定义一个方法。
+本地化值由`Localizations`的 [LocalizationsDelegates](https://api.flutter.dev/flutter/widgets/LocalizationsDelegate-class.html) 列表加载 。 **每个委托必须定义一个异步load() 方法**，以生成封装了一系列本地化值的对象。通常这些对象为每个本地化值定义一个方法。
 
-在大型应用程序中，不同模块或Package可能会与自己的本地化值捆绑在一起。 这就是为什么要用`Localizations` 管理对象表的原因。 要使用由`LocalizationsDelegate `的`load`方法之一产生的对象，可以指定一个`BuildContext`和对象的类型来找到它。例如，Material 组件库的本地化字符串由[MaterialLocalizations](https://docs.flutter.io/flutter/material/MaterialLocalizations-class.html)类定义，此类的实例由[MaterialApp](https://docs.flutter.io/flutter/material/MaterialApp-class.html)类提供的`LocalizationDelegate`创建， 它们可以如下方式获取到：
+在大型应用程序中，不同模块或Package可能会与自己的本地化值捆绑在一起。 这就是为什么要用`Localizations` 管理对象表的原因。 要使用由`LocalizationsDelegate `的`load`方法之一产生的对象，可以指定一个`BuildContext`和对象的类型来找到它。例如，Material 组件库的本地化字符串由[MaterialLocalizations](https://api.flutter.dev/flutter/material/MaterialLocalizations-class.html)类定义，此类的实例由[MaterialApp](https://api.flutter.dev/flutter/material/MaterialApp-class.html)类提供的`LocalizationDelegate`创建， 它们可以如下方式获取到：
 
 ```dart
 Localizations.of<MaterialLocalizations>(context, MaterialLocalizations);

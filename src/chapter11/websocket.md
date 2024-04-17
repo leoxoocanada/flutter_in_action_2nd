@@ -36,7 +36,7 @@ final channel = IOWebSocketChannel.connect('wss://echo.websocket.events');
 
 现在我们建立了连接，我们可以监听来自服务器的消息，在我们发送消息给测试服务器之后，它会返回相同的消息。
 
-我们如何收取消息并显示它们？在这个例子中，我们将使用一个[`StreamBuilder`](https://docs.flutter.io/flutter/widgets/StreamBuilder-class.html) 来监听新消息， 并用一个Text来显示它们。
+我们如何收取消息并显示它们？在这个例子中，我们将使用一个[`StreamBuilder`](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) 来监听新消息， 并用一个Text来显示它们。
 
 ```dart
 StreamBuilder(
@@ -47,7 +47,7 @@ StreamBuilder(
 );
 ```
 
-`WebSocketChannel`提供了一个来自服务器的消息`Stream` 。该`Stream`类是`dart:async`包中的一个基础类。它提供了一种方法来监听来自数据源的异步事件。与`Future`返回单个异步响应不同，`Stream`类可以随着时间推移传递很多事件。该[`StreamBuilder`](https://docs.flutter.io/flutter/widgets/StreamBuilder-class.html) 组件将连接到一个`Stream`， 并在每次收到消息时通知Flutter重新构建界面。
+`WebSocketChannel`提供了一个来自服务器的消息`Stream` 。该`Stream`类是`dart:async`包中的一个基础类。它提供了一种方法来监听来自数据源的异步事件。与`Future`返回单个异步响应不同，`Stream`类可以随着时间推移传递很多事件。该[`StreamBuilder`](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html) 组件将连接到一个`Stream`， 并在每次收到消息时通知Flutter重新构建界面。
 
 ### 3. 将数据发送到服务器
 
@@ -57,7 +57,7 @@ StreamBuilder(
 channel.sink.add('Hello!');
 ```
 
-`WebSocketChannel`提供了一个[`StreamSink`](https://docs.flutter.io/flutter/dart-async/StreamSink-class.html)，它将消息发给服务器。
+`WebSocketChannel`提供了一个[`StreamSink`](https://api.flutter.dev/flutter/dart-async/StreamSink-class.html)，它将消息发给服务器。
 
 `StreamSink`类提供了给数据源同步或异步添加事件的一般方法。
 

@@ -146,7 +146,7 @@ DefaultTextStyle(
 
 可以在 Flutter 应用程序中使用不同的字体。例如，我们可能会使用设计人员创建的自定义字体，或者其他第三方的字体，如 [Google Fonts](https://fonts.google.com/) 中的字体。本节将介绍如何为 Flutter 应用配置字体，并在渲染文本时使用它们。
 
-在 Flutter 中使用字体分两步完成。首先在`pubspec.yaml`中声明它们，以确保它们会打包到应用程序中。然后通过[`TextStyle`](https://docs.flutter.io/flutter/painting/TextStyle-class.html)属性使用字体。
+在 Flutter 中使用字体分两步完成。首先在`pubspec.yaml`中声明它们，以确保它们会打包到应用程序中。然后通过[`TextStyle`](https://api.flutter.dev/flutter/painting/TextStyle-class.html)属性使用字体。
 
 ### 1. 在asset中声明
 

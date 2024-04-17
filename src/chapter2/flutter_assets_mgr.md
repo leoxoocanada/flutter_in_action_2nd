@@ -43,12 +43,12 @@ flutter:
 
 ## 2.6.3 加载 assets
 
-您的应用可以通过[`AssetBundle`](https://docs.flutter.io/flutter/services/AssetBundle-class.html)对象访问其 asset 。有两种主要方法允许从 Asset bundle 中加载字符串或图片（二进制）文件。
+您的应用可以通过[`AssetBundle`](https://api.flutter.dev/flutter/services/AssetBundle-class.html)对象访问其 asset 。有两种主要方法允许从 Asset bundle 中加载字符串或图片（二进制）文件。
 
 ### 1. 加载文本assets
 
-- 通过[`rootBundle`](https://docs.flutter.io/flutter/services/rootBundle.html) 对象加载：每个Flutter应用程序都有一个[`rootBundle`](https://docs.flutter.io/flutter/services/rootBundle.html)对象， 通过它可以轻松访问主资源包，直接使用`package:flutter/services.dart`中全局静态的`rootBundle`对象来加载asset即可。
-- 通过 [`DefaultAssetBundle`](https://docs.flutter.io/flutter/widgets/DefaultAssetBundle-class.html) 加载：建议使用 [`DefaultAssetBundle`](https://docs.flutter.io/flutter/widgets/DefaultAssetBundle-class.html) 来获取当前 BuildContext 的AssetBundle。 这种方法不是使用应用程序构建的默认 asset bundle，而是使父级 widget 在运行时动态替换的不同的 AssetBundle，这对于本地化或测试场景很有用。
+- 通过[`rootBundle`](https://api.flutter.dev/flutter/services/rootBundle.html) 对象加载：每个Flutter应用程序都有一个[`rootBundle`](https://api.flutter.dev/flutter/services/rootBundle.html)对象， 通过它可以轻松访问主资源包，直接使用`package:flutter/services.dart`中全局静态的`rootBundle`对象来加载asset即可。
+- 通过 [`DefaultAssetBundle`](https://api.flutter.dev/flutter/widgets/DefaultAssetBundle-class.html) 加载：建议使用 [`DefaultAssetBundle`](https://api.flutter.dev/flutter/widgets/DefaultAssetBundle-class.html) 来获取当前 BuildContext 的AssetBundle。 这种方法不是使用应用程序构建的默认 asset bundle，而是使父级 widget 在运行时动态替换的不同的 AssetBundle，这对于本地化或测试场景很有用。
 
 通常，可以使用`DefaultAssetBundle.of()`在应用运行时来间接加载 asset（例如JSON文件），而在widget 上下文之外，或其他`AssetBundle`句柄不可用时，可以使用`rootBundle`直接加载这些 asset，例如：
 
@@ -67,7 +67,7 @@ Future<String> loadAsset() async {
 
 #### 1）声明分辨率相关的图片 assets
 
-[`AssetImage`](https://docs.flutter.io/flutter/painting/AssetImage-class.html) 可以将asset的请求逻辑映射到最接近当前设备像素比例（dpi）的asset。为了使这种映射起作用，必须根据特定的目录结构来保存asset：
+[`AssetImage`](https://api.flutter.dev/flutter/painting/AssetImage-class.html) 可以将asset的请求逻辑映射到最接近当前设备像素比例（dpi）的asset。为了使这种映射起作用，必须根据特定的目录结构来保存asset：
 
 - …/image.png
 - …/**M**x/image.png
@@ -90,7 +90,7 @@ Future<String> loadAsset() async {
 
 #### 2）加载图片
 
-要加载图片，可以使用 [`AssetImage`](https://docs.flutter.io/flutter/painting/AssetImage-class.html)类。例如，我们可以从上面的asset声明中加载背景图片：
+要加载图片，可以使用 [`AssetImage`](https://api.flutter.dev/flutter/painting/AssetImage-class.html)类。例如，我们可以从上面的asset声明中加载背景图片：
 
 ```dart
 Widget build(BuildContext context) {
@@ -112,7 +112,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-使用默认的 asset bundle 加载资源时，内部会自动处理分辨率等，这些处理对开发者来说是无感知的。 (如果使用一些更低级别的类，如 [`ImageStream`](https://docs.flutter.io/flutter/painting/ImageStream-class.html)或 [`ImageCache`](https://docs.flutter.io/flutter/painting/ImageCache-class.html) 时你会注意到有与缩放相关的参数)
+使用默认的 asset bundle 加载资源时，内部会自动处理分辨率等，这些处理对开发者来说是无感知的。 (如果使用一些更低级别的类，如 [`ImageStream`](https://api.flutter.dev/flutter/painting/ImageStream-class.html)或 [`ImageCache`](https://api.flutter.dev/flutter/painting/ImageCache-class.html) 时你会注意到有与缩放相关的参数)
 
 #### 3）依赖包中的资源图片
 
@@ -192,7 +192,7 @@ flutter:
 
 在 Flutter 框架加载时，Flutter 会使用本地平台机制绘制启动页。此启动页将持续到Flutter渲染应用程序的第一帧时。
 
-> **注意:** 这意味着如果您不在应用程序的`main()`方法中调用[runApp](https://docs.flutter.io/flutter/widgets/runApp.html) 函数 （或者更具体地说，如果您不调用[`window.render`](https://docs.flutter.io/flutter/dart-ui/Window/render.html)去响应[`window.onDrawFrame`](https://docs.flutter.io/flutter/dart-ui/Window/onDrawFrame.html)）的话， 启动屏幕将永远持续显示。
+> **注意:** 这意味着如果您不在应用程序的`main()`方法中调用[runApp](https://api.flutter.dev/flutter/widgets/runApp.html) 函数 （或者更具体地说，如果您不调用[`window.render`](https://api.flutter.dev/flutter/dart-ui/Window/render.html)去响应[`window.onDrawFrame`](https://api.flutter.dev/flutter/dart-ui/Window/onDrawFrame.html)）的话， 启动屏幕将永远持续显示。
 
 - Android
 
